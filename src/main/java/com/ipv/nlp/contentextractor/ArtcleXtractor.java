@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.ipv.nlp.contentextractor;
 
 import de.l3s.boilerpipe.BoilerpipeProcessingException;
@@ -23,7 +18,10 @@ import org.apache.tika.parser.html.BoilerpipeContentHandler;
 import org.apache.tika.sax.BodyContentHandler;
 import org.xml.sax.SAXException;
 
-
+/**
+ * 
+ * @author Mohsin Uddin
+ */
 public class ArtcleXtractor {
 
     /**
