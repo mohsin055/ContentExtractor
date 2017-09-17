@@ -24,14 +24,8 @@ import org.xml.sax.SAXException;
  */
 public class ArtcleXtractor {
 
-    /**
-     * @param args the command line arguments
-     * @throws java.io.FileNotFoundException
-     * @throws org.xml.sax.SAXException
-     * @throws org.apache.tika.exception.TikaException
-     */
+  
     public static void main(String[] args) throws FileNotFoundException, IOException, SAXException, TikaException, BoilerpipeProcessingException {
-        //Assume sample.txt is in your current directory
         File file = new File("");
 
         //parse method parameters
@@ -39,7 +33,7 @@ public class ArtcleXtractor {
         BodyContentHandler handler = new BodyContentHandler();
         Metadata metadata = new Metadata();
         //FileInputStream inputstream = new FileInputStream(file);
-        InputStream inputstream = TikaInputStream.get(new URL("http://www.prothom-alo.com/bangladesh/article/1318116/%E0%A6%A6%E0%A7%8D%E0%A6%AC%E0%A6%BF%E0%A6%A4%E0%A7%80%E0%A7%9F-%E0%A6%B8%E0%A6%BE%E0%A6%AC%E0%A6%AE%E0%A7%87%E0%A6%B0%E0%A6%BF%E0%A6%A8-%E0%A6%95%E0%A7%87%E0%A6%AC%E0%A7%8D%E2%80%8C%E0%A6%B2-%E0%A6%B8%E0%A6%82%E0%A6%AF%E0%A7%8B%E0%A6%97-%E0%A6%89%E0%A6%A6%E0%A7%8D%E0%A6%AC%E0%A7%8B%E0%A6%A7%E0%A6%A8-%E0%A6%95%E0%A6%B0%E0%A6%B2%E0%A7%87%E0%A6%A8"));
+        InputStream inputstream = TikaInputStream.get(new URL(""));
         ParseContext context = new ParseContext();
         //parsing the file
         parser.parse(inputstream, new BoilerpipeContentHandler(handler, ArticleExtractor.getInstance()), metadata, context);
@@ -48,7 +42,6 @@ public class ArtcleXtractor {
         //for (String name : metadataNames) {
           //  System.out.println(name + ":   " + metadata.get(name));
         //}
-        
         
         String plainText = handler.toString();
         FileWriter writer = new FileWriter("output.txt");
