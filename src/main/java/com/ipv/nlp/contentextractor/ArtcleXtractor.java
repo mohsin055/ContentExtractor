@@ -2,7 +2,6 @@ package com.ipv.nlp.contentextractor;
 
 import de.l3s.boilerpipe.BoilerpipeProcessingException;
 import de.l3s.boilerpipe.extractors.ArticleExtractor;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -26,12 +25,10 @@ public class ArtcleXtractor {
 
   
     public static void main(String[] args) throws FileNotFoundException, IOException, SAXException, TikaException, BoilerpipeProcessingException {
-        File file = new File("");
-
-        //parse method parameters
         Parser parser = new AutoDetectParser();
         BodyContentHandler handler = new BodyContentHandler();
         Metadata metadata = new Metadata();
+        //File file = new File("");
         //FileInputStream inputstream = new FileInputStream(file);
         InputStream inputstream = TikaInputStream.get(new URL(""));
         ParseContext context = new ParseContext();
@@ -49,7 +46,6 @@ public class ArtcleXtractor {
         writer.close();
         System.out.println("done");
             
-
     }
 
 }
